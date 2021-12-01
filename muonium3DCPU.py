@@ -64,6 +64,7 @@ i2 = np.reshape(I2, (NumObservationPointsX, NumObservationPointsY))
 
 # Graph 1: Point Sources Positions in Slits of the First Grating For 3D Muonium Simulation
 fig = plt.figure()
+plt.rcParams['agg.path.chunksize'] = 1000000
 y1 = np.array([i[0] for i in y])
 y2 = np.array([i[1] for i in y])
 A = max(ApertureLengthX, ApertureLengthY)
@@ -79,11 +80,12 @@ plt.xticks(fontsize=1.5*N)
 plt.yticks(fontsize=1.5*N)
 plt.gca().xaxis.get_offset_text().set_fontsize(1.5*N)
 plt.gca().yaxis.get_offset_text().set_fontsize(1.5*N)
-plt.savefig('1_Speed2/muonium3DFirstGrating.png')
+plt.savefig('muonium3DFirstGrating.png')
 plt.close(fig)
 
 # Graph 2: Intensity Distribution on Second Grating for 3D Munoium Simulation
 fig = plt.figure()
+plt.rcParams['agg.path.chunksize'] = 1000000
 ax = fig.add_subplot(projection='3d')
 plt.plot(o1, o2, I2, 'bo', markersize=1, label=label2)
 plt.legend(loc="upper left", fontsize=1.5*N)
@@ -96,11 +98,12 @@ ax.set_zlabel('Intensity', fontsize=1.5*N, labelpad=2*N)
 plt.gca().xaxis.get_offset_text().set_fontsize(1.5*N)
 plt.gca().yaxis.get_offset_text().set_fontsize(1.5*N)
 plt.gca().zaxis.get_offset_text().set_fontsize(1.5*N)
-plt.savefig('1_Speed2/muonium3DSecondGrating.png')
+plt.savefig('muonium3DSecondGrating.png')
 plt.close(fig)
 
 # Graph 3: Intensity Colormap of Second Grating for 3D Munoium Simulation
 fig = plt.figure()
+plt.rcParams['agg.path.chunksize'] = 1000000
 plt.imshow(i2, cmap='viridis', extent=[-OSLengthX/2, OSLengthX/2, -OSLengthY/2, OSLengthY/2])
 cbar = plt.colorbar()
 plt.xlabel('X-Position on Second Grating (nm)', fontsize=1.5*N)
@@ -113,7 +116,7 @@ plt.gca().xaxis.get_offset_text().set_fontsize(1.5*N)
 plt.gca().yaxis.get_offset_text().set_fontsize(1.5*N)
 cbar.ax.tick_params(labelsize=1.5*N)
 cbar.ax.yaxis.get_offset_text().set_fontsize(1.5*N)
-plt.savefig('1_Speed2/muonium3DSecondGratingColormap.png')
+plt.savefig('muonium3DSecondGratingColormap.png')
 plt.close(fig)
 
 
